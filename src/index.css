@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 97%;
+    --foreground: 230 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 15%;
+
+    --primary: 250 70% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 65% 70%;
+    --secondary-foreground: 340 65% 20%;
+
+    --muted: 220 20% 93%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 175 55% 55%;
+    --accent-foreground: 175 55% 10%;
+
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 250 70% 58%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 230 25% 15%;
+    --sidebar-primary: 250 70% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 70% 96%;
+    --sidebar-accent-foreground: 250 70% 30%;
+    --sidebar-border: 220 20% 92%;
+    --sidebar-ring: 250 70% 58%;
+
+    --success: 150 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 40 90% 55%;
+    --warning-foreground: 40 90% 15%;
+    --info: 210 80% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --glass: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 70% 58%), hsl(280 70% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(340 65% 70%), hsl(20 80% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(175 55% 55%), hsl(200 65% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(250 70% 58%), hsl(340 65% 70%), hsl(20 80% 70%));
+
+    --shadow-sm: 0 2px 8px -2px hsl(250 70% 58% / 0.08);
+    --shadow-md: 0 8px 24px -4px hsl(250 70% 58% / 0.12);
+    --shadow-lg: 0 16px 48px -8px hsl(250 70% 58% / 0.15);
+    --shadow-glass: 0 8px 32px -4px hsl(250 70% 58% / 0.1);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 230 25% 8%;
+    --foreground: 220 20% 93%;
+
+    --card: 230 22% 12%;
+    --card-foreground: 220 20% 93%;
+
+    --popover: 230 22% 12%;
+    --popover-foreground: 220 20% 93%;
+
+    --primary: 250 70% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 55% 55%;
+    --secondary-foreground: 340 55% 95%;
+
+    --muted: 230 20% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 175 50% 45%;
+    --accent-foreground: 175 50% 95%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 20%;
+    --input: 230 20% 20%;
+    --ring: 250 70% 65%;
+
+    --sidebar-background: 230 22% 10%;
+    --sidebar-foreground: 220 20% 93%;
+    --sidebar-primary: 250 70% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 70% 15%;
+    --sidebar-accent-foreground: 250 70% 80%;
+    --sidebar-border: 230 20% 18%;
+    --sidebar-ring: 250 70% 65%;
+
+    --glass: 230 22% 12% / 0.7;
+    --glass-border: 230 22% 20% / 0.3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 dark:bg-slate-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] transition-all duration-300;
+  }
+  
+  .glass-blur {
+    @apply backdrop-blur-2xl bg-white/10 border border-white/20 shadow-2xl;
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .glass-blur {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+}
